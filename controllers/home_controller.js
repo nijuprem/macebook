@@ -13,7 +13,15 @@ module.exports.home = function(req, res){
     // })
 
     // Populate user of each obj
-    Post.find({}).populate('user').exec(function(err, posts){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate:{
+            path: 'user'
+        }
+    })
+    .exec(function(err, posts){
         return res.render('home', {
             title: "MaceBook | Home",
             posts : posts

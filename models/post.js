@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
+const postSchema = new mongoose.Schema({
     content:{
         type: String,
         required : true
@@ -8,7 +8,14 @@ const postSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    // Include array of ids all the comments in post schema
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment' 
+        }
+    ]
 },{
     timestamps: true
 });
