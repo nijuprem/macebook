@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 
-// MongoStore to sake cookie in DB
+// MongoStore to save cookie in DB
 app.use(session({
     name: 'macebook',
     // TODO change the secret before deployment in production mode
