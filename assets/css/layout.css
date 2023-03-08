@@ -7,3 +7,14 @@ body {
   padding-left: 1rem;
   height: 100%; 
 }
+
+.notie-container {
+  box-shadow: none  !important ;  
+  height: 3.7rem  !important ; 
+  font-size: 20px  !important ; 
+  width: 28%  !important ; 
+  top: 1%  !important ; 
+  left: 71%  !important ; 
+  transition: all 0.3s ease 0s  !important ; 
+}
+

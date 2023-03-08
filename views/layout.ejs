@@ -6,13 +6,21 @@
         <link rel="stylesheet" href="/css/layout.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+        <script src="https://unpkg.com/notie"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
         <%- style %>
-        
     </head>
 
     <body>
         <%- include('_header'); %>
+
+        <!-- <% if(flash.success && flash.success.length > 0) { %>
+            <h5>
+                <%= flash.success %>
+            </h5>
+        <% } %> -->
         
         <main id="layout-main">
             <%- body %>
@@ -23,6 +31,15 @@
         <%- include('_footer'); %>
 
         <%- script %>
+        <script>
+            <% if(flash.success && flash.success.length > 0) { %>
+                // notie.alert({ type: 1, text: 'Success!', stay: true })
+                notie.alert({ type: 'success', text: '<%= flash.success %>', time: 2 })
+            <% } %>   
+            <% if (flash.error && flash.error.length > 0) {%>
+                notie.alert({ type: 'error', text: '<%= flash.error %>', time: 2 })
+            <% } %>  
+        </script>
         
     </body>
 </html>

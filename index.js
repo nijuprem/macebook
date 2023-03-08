@@ -10,13 +10,19 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('./config/passport-local-strategy').Strategy;
 const MongoStore = require('connect-mongodb-session')(session);// Session  is the express session we had initiated above
+const flash = require('connect-flash');
+const customMware =  require('./config/middleware');
 
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use(expressLayouts);
+app.use(express.static('./assets'));
+// Uploads folder is available in /upload path, basically make uploads folder available to browser
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
+app.use(expressLayouts);
+ 
 
 // set up the view engine
 app.set('view engine', 'ejs');
@@ -50,7 +56,8 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticationUser);
 
-app.use(express.static('./assets'));
+app.use(flash()); // to use connect-flash
+app.use(customMware.setFlash)
 
 // use express router
 app.use('/', require('./routes'));
