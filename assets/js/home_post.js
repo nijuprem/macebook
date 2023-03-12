@@ -16,6 +16,21 @@
                     let newPost = newPostDom(data.data.post);
                     $('.list-container>ul').prepend(newPost)
                     deletePost($(' .delete-post-button', newPost));
+
+                    new PostComments(data.data.post._id);
+
+                   // enable the functionality of the toggle like button on the new post
+                    new ToggleLike($(' .toggle-like-button', newPost));
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post published!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
+
                 }, error: function (error) {
                     console.log(error.responseText);
                 }
@@ -35,6 +50,14 @@
                     <small>
                         ${post.user.name}
                     </small>
+                    <br>
+                        <small>
+                            
+                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                    0 Likes
+                                </a>
+                            
+                        </small>
             </p>
             <div class="post-comments">
 
@@ -65,14 +88,23 @@
 
             $.ajax({
                 type: 'get',
-                url: $(delete-post-button).prop('href'), // this is how to get href of anchor tag
+                url: $(deleteLink).prop('href'),
                 success: function(data){
-                    $(`#post-${data.data.post._id}`).remove();
-                }, error: function(err){
-                    console.log(err.responseText)
+                    $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post Deleted",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
+                },error: function(error){
+                    console.log(error.responseText);
                 }
             });
-        })
+
+        });
     }
 
     let convertPostsToAjax = function(){

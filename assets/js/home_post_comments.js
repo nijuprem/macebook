@@ -29,6 +29,7 @@ class PostComments{
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
+                    // new ToggleLike($(' .toggle-like-button', newComment));
 
                 }, error: function(error){
                     console.log(error.responseText);
@@ -41,7 +42,7 @@ class PostComments{
 
 
     newCommentDom(comment){
-        // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
+        // Added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${ comment._id }">
                         <p>
                             
