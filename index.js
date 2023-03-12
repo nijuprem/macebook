@@ -8,7 +8,9 @@ const db = require('./config/mongoose');
 // Used for session cookie
 const session = require('express-session');
 const passport = require('passport');
-const LocalStrategy = require('./config/passport-local-strategy').Strategy;
+// const LocalStrategy = require('./config/passport-local-strategy').Strategy;
+const LocalStrategy = require('./config/passport-local-strategy');
+const passportJwt = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongodb-session')(session);// Session  is the express session we had initiated above
 const flash = require('connect-flash');
 const customMware =  require('./config/middleware');
