@@ -25,7 +25,7 @@
     </section>
 
     <section id="user-friends">
-        <h4>Friends</h4>
+        <h4>Other Users</h4>
         <% for(u of all_users){ %>
             <p>
                 <a href="/users/profile/<%= u.id %>"><%= u.name%></a>
@@ -33,4 +33,5 @@
         <% } %>
     </section>
 </div>
+<!-- <script src="/js/home_post_comments.js" ></script> -->
 <script src="/js/home_post.js"></script>
