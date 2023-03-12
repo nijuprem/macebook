@@ -14,6 +14,7 @@ const passportJwt = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongodb-session')(session);// Session  is the express session we had initiated above
 const flash = require('connect-flash');
 const customMware =  require('./config/middleware');
+const passportgoogle = require('./config/passport-config-oauth2-strategy')
 
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.urlencoded());
