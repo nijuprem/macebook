@@ -14,7 +14,15 @@ const passportJwt = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongodb-session')(session);// Session  is the express session we had initiated above
 const flash = require('connect-flash');
 const customMware =  require('./config/middleware');
-const passportgoogle = require('./config/passport-config-oauth2-strategy')
+const passportgoogle = require('./config/passport-config-oauth2-strategy');
+
+// Setting up socket.io
+// const chatServer = require('http').createServer(app);
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+
+chatServer.listen(5000);
+console.log("Chat server working")
 
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.urlencoded());

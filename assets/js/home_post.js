@@ -22,15 +22,6 @@
                    // enable the functionality of the toggle like button on the new post
                     new ToggleLike($(' .toggle-like-button', newPost));
 
-                    new Noty({
-                        theme: 'relax',
-                        text: "Post published!",
-                        type: 'success',
-                        layout: 'topRight',
-                        timeout: 1500
-                        
-                    }).show();
-
                 }, error: function (error) {
                     console.log(error.responseText);
                 }
@@ -91,14 +82,7 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
-                    new Noty({
-                        theme: 'relax',
-                        text: "Post Deleted",
-                        type: 'success',
-                        layout: 'topRight',
-                        timeout: 1500
-                        
-                    }).show();
+                    
                 },error: function(error){
                     console.log(error.responseText);
                 }
