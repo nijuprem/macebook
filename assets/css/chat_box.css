@@ -32,7 +32,6 @@
 
 #user-chat-box #chat-messages-list .self-message {
   text-align: right;
-  padding: 5px;
 }
 
 #user-chat-box #chat-messages-list .self-message span {
@@ -61,4 +60,10 @@
   color: white;
   border: none;
   background: dodgerblue;
+}
+
+.other-message p, .self-message p{
+  margin: 0;
+  margin-top: 2px;
+  font-size: 15px;
 }

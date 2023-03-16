@@ -18,7 +18,7 @@ class chatEngine{
 
 
             self.socket.emit('join_room', {
-                user_email: self.userName,
+                user_name: self.userName,
                 chatroom: 'mace'
             });
 
@@ -35,7 +35,7 @@ class chatEngine{
             if (msg != ''){
                 self.socket.emit('send_message', {
                     message: msg,
-                    user_email: self.userName,
+                    user_name: self.userName,
                     chatroom: 'mace'
                 });
             }
@@ -49,7 +49,7 @@ class chatEngine{
 
             let messageType = 'other-message';
 
-            if (data.user_email == self.userName){
+            if (data.user_name == self.userName){
                 messageType = 'self-message';
             }
 
@@ -58,7 +58,7 @@ class chatEngine{
             }));
 
             newMessage.append($('<p>', {
-                'html': data.user_email
+                'html': data.user_name
             }));
 
             newMessage.addClass(messageType);

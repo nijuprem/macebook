@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 8000;
+const env = require('./config/enviornment');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // Used for session cookie
@@ -17,7 +18,6 @@ const customMware =  require('./config/middleware');
 const passportgoogle = require('./config/passport-config-oauth2-strategy');
 
 // Setting up socket.io
-// const chatServer = require('http').createServer(app);
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 // Uploads folder is available in /upload path, basically make uploads folder available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
@@ -43,8 +43,7 @@ app.set('views', './views');
 // MongoStore to save cookie in DB
 app.use(session({
     name: 'macebook',
-    // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

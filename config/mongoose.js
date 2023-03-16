@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+
+// const env = require('./enviornment');
 mongoose.connect('mongodb://127.0.0.1:27017/macebook_development');
 
 const db = mongoose.connection;
