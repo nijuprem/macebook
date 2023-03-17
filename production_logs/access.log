@@ -1,2 +1,0 @@
-::ffff:127.0.0.1 - - [17/Mar/2023:04:07:22 +0000] "GET /users/profile/64134421a5145ff487da2ed9 HTTP/1.1" 302 72 "http://127.0.0.1:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
-::ffff:127.0.0.1 - - [17/Mar/2023:04:07:22 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://127.0.0.1:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
