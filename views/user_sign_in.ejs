@@ -1,12 +1,15 @@
-<h1>Sign In</h1>
+<link rel="stylesheet" href="<%= assetPath('css/sign_in.css') %>">
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email"  required>
-    <input type="password" name="password" placeholder="Password"  required>
-    <input type="submit" value="Sign In">
+<div class="card user_sign_in mx-auto col-10 col-md-8 col-lg-6 p-4 m-5">
+    <h2 class ="text-center pb-3">Sign In</h2>
+    <div class = 'container google-sign p-2 border border-dark text-center mb-5'>
+        <img src="<%= assetPath('images/google-Icon.jpg') %>" style="width: 10%"  class ='img-class'><a href="/users/auth/google" class="google_anchor">Google Sign In/Sign Up</a>
+    </div>
+    <form action="/users/create-session" class="mx-auto" method="POST">
+        <input class="mb-3" type="email" name="email" placeholder="Email" required><br>
+        <input class="mb-3" type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" class="button_submits text-white" value="Sign In">
 
-</form>
+    </form>
 
-<p>
-    <a href="/users/auth/google">Google Sign In/Sign Up</a>
-</p>
+</div>

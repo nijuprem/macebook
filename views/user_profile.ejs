@@ -1,20 +1,28 @@
 <link rel="stylesheet" href="<%= assetPath('css/user_profile.css') %>">
-<h1>
-    MaceBook / Profile Page
-</h1>
-
+<h2 class="text-center mt-3">
+    MaceBook | Profile Page
+</h2>
+<div class="card user_sign_in mx-auto col-10 col-md-8 col-lg-6 p-4 m-5">
 <% if(user.id == profile_user.id){ %>
-    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100px" style="margin-bottom: 1.5rem">
+    <div class="text-center">
+        <img src="<%= user.avatar %>" alt="<%= user.name %>: Upload Profile Picture" width="150px" style="margin-bottom: 1.5rem">
+    </div>
+    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST" class="text-center form-upload-profile">
+        <p class="m-1">Update Name: </p>
+        <input type="text" class="mb-3 form_profile" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required><br>
+        <p class="m-1">Update Password: </p>
+        <input type="email" class="mb-3 form_profile"name="email" placeholder="Your Email" value="<%= profile_user.email %>" required><br>
 
-    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-        <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
-        <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
-
-        <input type="file" name= "avatar" placeholder="Profile Picture">
-        <input type="submit"  value="Update">
+        <p class="mb-2">Upload Profile Picture: </p>
+        <input type="file" name= "avatar" class="mb-4 form_profile" placeholder="Profile Picture"><br>
+        <input type="submit"  value="Update" class="profile_submit">
     </form>
 <%} else {%>
-    <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100px" style="margin-bottom: 1.5rem">
-    <p><%= profile_user.name %></p>
-    <p><%= profile_user.email %></p>
+    <div class="text-center">
+    <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>: No Profile Picture" width="100px" style="margin-bottom: 1.5rem">
+        <p><%= profile_user.name %></p>
+        <p><%= profile_user.email %></p>
+    </div>
 <% } %>
+
+</div>

@@ -3,6 +3,9 @@ input, .google-sign{
     height: 3rem;
 }
 
+.user_sign_in{
+    width: 35%;
+}
 
 .google_anchor{
     text-decoration: none !important;

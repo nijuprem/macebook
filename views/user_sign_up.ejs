@@ -1,20 +1,26 @@
 
-<link rel="stylesheet" href="/css/sign_up">
+<link rel="stylesheet" href="<%= assetPath('css/sign_up.css') %>">
 
-<div class="card user_sign_up mx-auto col-10 col-md-8 col-lg-6 p-3 m-5" style="width: 30rem;">
+<div class="card user_sign_up mx-auto col-10 col-md-8 col-lg-6 p-4 m-5" style="width: 30rem;">
     <h2 class ="text-center pb-3">Sign Up</h2>
+
+    <div class = 'container google-sign p-2 border border-dark text-center mb-5'>
+        <img src="<%= assetPath('images/google-Icon.jpg') %>"  class ='img-class'><a href="/users/auth/google" class="google_anchor">Google Sign In/Sign Up</a>
+    </div>
+
     <form action="/users/create" class="mx-auto" method="POST">
-        <input class="mb-2" type="text" name="name" placeholder="Your Name" required><br>
-        <input class="mb-2 input-lg" type="email" name="email" placeholder="Your Email" required><br>
-        <input class="mb-2" type="password" name="password" placeholder="Password" required><br>
-        <input class="mb-2" type="password" name="confirm_password" placeholder="Confirm Password" required><br>
-        <input class="" type="submit" value="Sign Up">
+        <input class="mb-3" type="text" name="name" placeholder="Your Name" required><br>
+        <input class="mb-3 input-lg" type="email" name="email" placeholder="Your Email" required><br>
+        <input class="mb-3" type="password" name="password" placeholder="Password" required><br>
+        <input class="mb-3" type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+        <input class="p-2 text-center text-white button_submits mt-2" type="submit" value="Sign Up">
     
     </form>
+    <p id="already-account" class ="text-center">
+        <span>Already have an account?</span> 
+        <a href="/users/sign-in" >Log In</a>
+    </p>
   </div>
 
 
 
-<p>
-    <a href="/users/auth/google">Google Sign In/Sign Up</a>
-</p>

@@ -1,3 +1,14 @@
-body {
-    background-color: lightblue; 
+.form-upload-profile{
+    
+    font-weight: bold;
+}
+
+.form_profile{
+    width: 15rem;
+}
+.profile_submit{
+    background-color: #2196f3 !important;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
 }

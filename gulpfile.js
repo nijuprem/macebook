@@ -42,7 +42,7 @@ gulp.task('images', function(done){
     gulp.src('./assets/**/*.+(png|jpg|gif|svg|jpeg)')
     .pipe(imagemin())
     .pipe(rev())
-    .pipe(gulp.dest('./public/assets/images'))
+    .pipe(gulp.dest('./public/assets'))
     .pipe(rev.manifest({
         cwd: 'public',
         merge: true

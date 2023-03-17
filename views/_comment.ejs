@@ -27,17 +27,21 @@
 
 <li id="comment-<%= comment._id %>">
     <p>
-        <% if (locals.user && locals.user.id == comment.user.id){ %>
-        
-        <small>
-            <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
-        </small>
-        <% } %>
-        <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.name %>
-        </small>
-    </p>    
+        <b>
+            <small class="mb-2" style="color: #183db0">
+                <%= comment.user.name %>
+            </small>
+        </b><br>
+        <% if (locals.user && locals.user.id==comment.user.id){ %>
+
+            <br>
+            <small>
+                <a class="delete-comment-button text-danger" style="text-decoration: none;"
+                    href="/comments/destroy/<%= comment.id %>">X</a>
+            </small>
+            <% } %>
+            <%= comment.content %>
+            <br>
+    </p>
 
 </li>

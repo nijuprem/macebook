@@ -1,47 +1,63 @@
 <link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
 
-<h1>
+<h2 class="text-center mt-3">
     <%= title %>
-</h1>
+</h2>
 
-<div id="home-container">
+<div id="home-container" class="mt-5">
     <section id="feed-posts">
-        <h4>Posts</h4>
+        <h4 class="text-center">Posts</h4>
+
         <% if(locals.user){ %>
-            <form action="/post/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea><br>
-                <input type="submit" value="Post">
+            <form action="/post/create" class="text-center m-3" id="new-post-form" method="POST">
+                <textarea name="content" class="post-add" cols="40" rows="4" placeholder="Type Here..."></textarea><br>
+                <input type="submit" class="post-submit p-1" value="Post">
             </form>
             <%} %>
 
+
                 <div class="list-container">
-                    <ul>
-                        <% for(post of posts){ %>
-                            <%- include('_post') -%>
-                        <% } %>
-                    </ul>
+ 
+                        <ul>
+                            <% for(post of posts){ %>
+                                <%- include('_post') -%>
+                                    <% } %>
+                        </ul>
+
                 </div>
-
     </section>
-    
 
+    <% if(locals.user){ %>
     <section id="user-friends">
         <h4>Friends</h4>
         <% for(u of all_users){ %>
             <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.name%></a>
+                <a href="/users/profile/<%= u.id %>" style="text-decoration: none;">
+                    <%= u.name%>
+                </a>
             </p>
-        <% } %>
+            <% } %>
     </section>
+    <%}else{ %>
+        <section id="user-friends">
+            <h4>Macebook Users</h4>
+            <% for(u of all_users){ %>
+                <p>
+                    <a href="/users/profile/<%= u.id %>" style="text-decoration: none;">
+                        <%= u.name%>
+                    </a>
+                </p>
+                <% } %>
+        </section>
+        <%} %>
     <%- include('_chat_box') -%>
 </div>
 
 
-<script src="<%= assetPath('js/home_post.js') %>"></script>
 <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 
 <script>
-    $('.toggle-like-button').each(function(){
+    $('.toggle-like-button').each(function () {
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
@@ -54,4 +70,4 @@
     <script>
         new chatEngine('user-chat-box', '<%= locals.user.name %>')
     </script>
-<% } %>
+    <% } %>

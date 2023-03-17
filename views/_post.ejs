@@ -1,42 +1,45 @@
-<li id="post-<%= post._id %>">
-    <p>
+<li id="post-<%= post._id %>" class="main_posts position-relative m-2">
+    <p class="p-3">
+        <small class="mb-2 font-weight-bold" style="color: #183db0">
+            <b> <%= post.user.name %> </b>
+         </small>
         <% if(locals.user && locals.user.id==post.user.id){ %>
+        
             <small>
-                <a class="delete-post-button" href="/post/destroy/<%= post.id %>">Delete</a>
+                <a class="delete-post-button text-danger position-absolute" style="text-decoration: none; right: 2.5rem;" href="/post/destroy/<%= post.id %>"><b>Delete</b></a>
             </small>
+            <br>
+            
             <% } %>
                 <%= post.content %>
                     <br>
-                    <small>
-                        <%= post.user.name %>
-                    </small>
-                    <br>
+            
                     <small>
                         <% if (locals.user){ %>
-                            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                            <a class="toggle-like-button text-primary font-weight-bold" data-likes="<%= post.likes.length %>" style="text-decoration: none;" href="/likes/toggle/?id=<%=post._id%>&type=Post">
                                 <%= post.likes.length %> Likes
                             </a>
                             <% }else{ %>
                             <%= post.likes.length %> Likes
                             <% } %>
-                    </small>
+                    </small><hr style="margin: 0 0 2rem 0">
     </p>
     <div class="post-comments">
         <% if (locals.user){ %>
-            <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
-                <input type="text" name="content" placeholder="Type Here to add comment...">
+            <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST" class="text-center">
+                <input class="post-comments w-75 rounded-pill" type="text" name="content" placeholder="Type Here to add comment...">
                 <!-- We need to send the id of post to which comment needs to be added -->
                 <input type="hidden" name="post" value="<%= post._id %>">
-                <input type="submit" value="Add Comment">
+                <input type="submit" style="background-color: #2196f3; color: white" value="Add Comment">
             </form>
-
+            <hr style="opacity: 35%; margin: 2rem 0 1rem 0;">
             <% } %>
 
                 <div class="post-comments-list">
-                    <ul id="post-comments-<%= post._id%>">
+                    <ul id="post-comments-<%= post._id%>" style="list-style-type: disc;">
                         <% for (comment of post.comments){ %>
                             <%-include('_comment')-%>
-                                <%}%>
+                        <%}%>
                     </ul>
                 </div>
     </div>
