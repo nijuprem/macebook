@@ -6,7 +6,7 @@ module.exports.toggleLike = async function(req, res){
     try{
 
         let likeable;
-        let deleted = false;
+        let deleted = false; 
 
         // To check in which like count needs to be increased
         
@@ -15,7 +15,7 @@ module.exports.toggleLike = async function(req, res){
         }else{
             likeable = await Comment.findById(req.query.id).populate('likes')
         }
-
+ 
         // Check if user has already liked
         let existingLike = await Like.findOne({
             likeable: req.query.id,

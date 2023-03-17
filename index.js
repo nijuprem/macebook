@@ -1,9 +1,10 @@
 const dotenv = require('dotenv').config({path: './config.env'});
 
-const express = require('express');
+const express = require('express');      
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
+require('./config/view_helpers')(app);    
 const port = 8000;
 const env = require('./config/enviornment');
 const logger = require('morgan');

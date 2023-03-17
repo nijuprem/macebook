@@ -7,7 +7,7 @@
         newPostForm.submit(function (e) {
             e.preventDefault();
 
-            $.ajax({
+            $.ajax({ 
                 type: 'post',
                 url: "/post/create",
                 data: newPostForm.serialize(), // Used to convert data from form to JSON
