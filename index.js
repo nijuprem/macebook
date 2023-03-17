@@ -1,9 +1,12 @@
+const dotenv = require('dotenv').config({path: './config.env'});
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 8000;
 const env = require('./config/enviornment');
+const logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // Used for session cookie
@@ -13,7 +16,7 @@ const passport = require('passport');
 const LocalStrategy = require('./config/passport-local-strategy');
 const passportJwt = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongodb-session')(session);// Session  is the express session we had initiated above
-const flash = require('connect-flash');
+const flash = require('connect-flash'); 
 const customMware =  require('./config/middleware');
 const passportgoogle = require('./config/passport-config-oauth2-strategy');
 
@@ -26,11 +29,13 @@ console.log("Chat server working")
 
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser()); 
 
 app.use(express.static(env.asset_path));
 // Uploads folder is available in /upload path, basically make uploads folder available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
  
