@@ -57,7 +57,7 @@ app.use(session({
     },
     store: new MongoStore(
         {
-          uri:'mongodb://127.0.0.1:27017/macebook_development',
+          uri:'mongodb+srv://nijuprem7:nptestdb@cluster0.x2suycd.mongodb.net/?retryWrites=true&w=majority',
             // mongooseConnection : db,
             autoRemove: 'disabled'
         },
