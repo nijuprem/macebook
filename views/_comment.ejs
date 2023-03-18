@@ -34,7 +34,6 @@
         </b><br>
         <% if (locals.user && locals.user.id==comment.user.id){ %>
 
-            <br>
             <small>
                 <a class="delete-comment-button text-danger" style="text-decoration: none;"
                     href="/comments/destroy/<%= comment.id %>">X</a>
