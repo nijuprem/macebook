@@ -38,4 +38,15 @@
 
 [Bootstrap](//getbootstrap.com/),  [Node.js](//nodejs.org/en/), [Express](//expressjs.com/), [mongoDB](//www.mongodb.com/), [EJS](//ejs.co/), [passport.js](//www.passportjs.org/) 
 
+## Screenshots
+### Sign-Up Page:
+![macebook1](https://user-images.githubusercontent.com/111877615/226099817-b065d298-aa47-45c8-a8a3-f49888de9f45.png)
+---
+### HomePage:
+![m-3](https://user-images.githubusercontent.com/111877615/226099816-002ab850-fc17-40a7-a9c6-2610ef6d4bcc.png)
+---
+### Your Profile:
+![m-2](https://user-images.githubusercontent.com/111877615/226099814-989ad829-f894-4d72-a4c4-a6ff996e4389.png)
+
+
 
