@@ -36,7 +36,7 @@
 
 ## Technologies
 
-[Bootstrap](//getbootstrap.com/),  [Node.js](//nodejs.org/en/), [Express](//expressjs.com/), [mongoDB](//www.mongodb.com/), [EJS](//ejs.co/), [passport.js](//www.passportjs.org/) 
+[Bootstrap](//getbootstrap.com/),  [Node.js](//nodejs.org/en/), [Express](//expressjs.com/), [MongoDB](//www.mongodb.com/), [EJS](//ejs.co/), [passport.js](//www.passportjs.org/) 
 
 ## Screenshots
 ### Sign-Up Page:
